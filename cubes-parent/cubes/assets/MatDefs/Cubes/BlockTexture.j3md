@@ -1,0 +1,38 @@
+MaterialDef BlockTexture {
+    MaterialParameters {
+        Texture2D BlockMap
+    }
+    Technique {
+        WorldParameters {
+            WorldViewProjectionMatrix
+        }
+        VertexShaderNodes {
+            ShaderNode BlockTextureVert {
+                Definition : BlockTextureVert : MatDefs/Cubes/BlockTextureNodeDefVert.j3sn
+                InputMappings {
+                    worldViewProjectionMatrix = WorldParam.WorldViewProjectionMatrix
+                    vertPosition = Global.position.xyz
+                    vertNormal = Attr.inNormal.xyz
+                    texCoord = Attr.inTexCoord.xy
+                }
+                OutputMappings {
+                    Global.position = projPosition
+                }
+            }
+        }
+        FragmentShaderNodes {
+            ShaderNode BlockTextureFrag {
+                Definition : BlockTextureFrag : MatDefs/Cubes/BlockTextureNodeDefFrag.j3sn
+                InputMappings {
+                    vertPosition = BlockTextureVert.vertPosition
+                    vertNormal = BlockTextureVert.vertNormal
+                    tileCoord = BlockTextureVert.texCoord
+                    blockMap = MatParam.BlockMap
+                }
+                OutputMappings {
+                    Global.color = outColor
+                }
+            }
+        }
+    }
+}

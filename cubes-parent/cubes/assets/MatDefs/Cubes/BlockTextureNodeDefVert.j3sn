@@ -1,0 +1,21 @@
+ShaderNodeDefinitions{
+      ShaderNodeDefinition BlockTextureVert{
+            Type : Vertex
+            Shader GLSL100 : MatDefs/Cubes/BlockTextureShader.vert
+            Documentation {
+                Blubb1
+            } 
+            Input {
+                mat4 worldViewProjectionMatrix
+                vec3 vertPosition
+                vec3 vertNormal
+                vec2 texCoord
+            }
+            Output {
+                vec4 projPosition
+                vec3 vertPosition
+                vec3 vertNormal
+                vec2 texCoord
+            }
+      }
+}

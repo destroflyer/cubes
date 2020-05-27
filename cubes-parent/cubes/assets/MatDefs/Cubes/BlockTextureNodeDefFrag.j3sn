@@ -1,0 +1,18 @@
+ShaderNodeDefinitions{
+      ShaderNodeDefinition BlockTextureFrag{
+            Type : Fragment
+            Shader GLSL100 : MatDefs/Cubes/BlockTextureShader.frag
+            Documentation {
+                Blubb2
+            } 
+            Input {
+                vec3 vertPosition
+                vec3 vertNormal
+                vec2 tileCoord
+                sampler2D blockMap
+            }
+            Output {
+                vec4 outColor
+            }
+      }
+}
