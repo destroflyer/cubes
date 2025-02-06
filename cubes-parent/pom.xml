@@ -11,12 +11,12 @@
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
         <version.cubes>0.1</version.cubes>
-        <version.jdom>2.0.6</version.jdom>
-        <version.jme3>3.2.1-stable</version.jme3>
-        <version.lombok>1.18.6</version.lombok>
+        <version.jme>3.6.1-stable</version.jme>
+        <version.minie>8.2.0</version.minie>
+        <version.lombok>1.18.36</version.lombok>
+        <version.maven-compiler-plugin>3.13.0</version.maven-compiler-plugin>
+        <version.maven-source-plugin>3.3.1</version.maven-source-plugin>
     </properties>
     <repositories>
         <repository>
@@ -32,47 +32,37 @@
                 <artifactId>cubes</artifactId>
                 <version>${version.cubes}</version>
             </dependency>
-            <!--JDOM-->
-            <dependency>
-                <groupId>org.jdom</groupId>
-                <artifactId>jdom2</artifactId>
-                <version>${version.jdom}</version>
-            </dependency>
             <!--jMonkeyEngine-->
             <dependency>
                 <groupId>org.jmonkeyengine</groupId>
                 <artifactId>jme3-core</artifactId>
-                <version>${version.jme3}</version>
+                <version>${version.jme}</version>
             </dependency>
             <dependency>
                 <groupId>org.jmonkeyengine</groupId>
-                <artifactId>jme3-lwjgl</artifactId>
-                <version>${version.jme3}</version>
+                <artifactId>jme3-lwjgl3</artifactId>
+                <version>${version.jme}</version>
             </dependency>
             <dependency>
                 <groupId>org.jmonkeyengine</groupId>
                 <artifactId>jme3-desktop</artifactId>
-                <version>${version.jme3}</version>
+                <version>${version.jme}</version>
+                <scope>runtime</scope>
             </dependency>
             <dependency>
                 <groupId>org.jmonkeyengine</groupId>
                 <artifactId>jme3-terrain</artifactId>
-                <version>${version.jme3}</version>
+                <version>${version.jme}</version>
             </dependency>
             <dependency>
                 <groupId>org.jmonkeyengine</groupId>
                 <artifactId>jme3-effects</artifactId>
-                <version>${version.jme3}</version>
+                <version>${version.jme}</version>
             </dependency>
             <dependency>
-                <groupId>org.jmonkeyengine</groupId>
-                <artifactId>jme3-bullet</artifactId>
-                <version>${version.jme3}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jmonkeyengine</groupId>
-                <artifactId>jme3-bullet-native</artifactId>
-                <version>${version.jme3}</version>
+                <groupId>com.github.stephengold</groupId>
+                <artifactId>Minie</artifactId>
+                <version>${version.minie}</version>
             </dependency>
             <!--Lombok-->
             <dependency>
@@ -82,4 +72,30 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${version.maven-compiler-plugin}</version>
+                <configuration>
+                    <source>22</source>
+                    <target>22</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${version.maven-source-plugin}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

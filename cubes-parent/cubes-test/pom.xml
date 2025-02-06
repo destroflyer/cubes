@@ -21,24 +21,19 @@
         </dependency>
         <dependency>
             <groupId>org.jmonkeyengine</groupId>
-            <artifactId>jme3-desktop</artifactId>
-            <scope>runtime</scope>
+            <artifactId>jme3-lwjgl3</artifactId>
         </dependency>
         <dependency>
             <groupId>org.jmonkeyengine</groupId>
-            <artifactId>jme3-lwjgl</artifactId>
+            <artifactId>jme3-desktop</artifactId>
         </dependency>
         <dependency>
             <groupId>org.jmonkeyengine</groupId>
             <artifactId>jme3-effects</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jmonkeyengine</groupId>
-            <artifactId>jme3-bullet</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.jmonkeyengine</groupId>
-            <artifactId>jme3-bullet-native</artifactId>
+            <groupId>com.github.stephengold</groupId>
+            <artifactId>Minie</artifactId>
         </dependency>
     </dependencies>
 </project>
